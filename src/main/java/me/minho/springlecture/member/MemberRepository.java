@@ -2,5 +2,5 @@ package me.minho.springlecture.member;
 
 public interface MemberRepository {
     void save(Member member);
-    Member findById(String id);
+    Member findById(long id);
 }

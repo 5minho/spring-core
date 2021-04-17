@@ -2,6 +2,5 @@ package me.minho.springlecture.member;
 
 public interface MemberService {
     void join(Member member);
-
-    Member findMember(String id);
+    Member findMember(long id);
 }
