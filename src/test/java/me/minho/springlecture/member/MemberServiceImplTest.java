@@ -10,7 +10,7 @@ class MemberServiceImplTest {
     public void joinTest() {
         // given
         MemberService memberService = new MemberServiceImpl();
-        Member joinMember = new Member("memberA", MemberGrade.BASIC);
+        Member joinMember = new Member(1L, MemberGrade.BASIC);
         memberService.join(joinMember);
 
         // when
