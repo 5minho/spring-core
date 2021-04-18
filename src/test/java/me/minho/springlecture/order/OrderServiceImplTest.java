@@ -14,7 +14,7 @@ class OrderServiceImplTest {
     public void vipOrderTest() {
         // given
         MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl(memberService);
+        OrderService orderService = new OrderServiceImpl(memberService, new FixDiscountPolicy(1000), new MemoryOrderRepository());
         Member member = new Member(1L, MemberGrade.VIP);
         Item item = new Item("라면", 5000);
         memberService.join(member);
@@ -25,7 +25,7 @@ class OrderServiceImplTest {
         // then
         Order order = orderService.findById(orderId);
         assertThat(order.getItem()).isEqualTo(item);
-        assertThat(order.getOrderPrice()).isEqualTo(4000);
+        assertThat(order.calculateOrderPrice()).isEqualTo(4000);
         assertThat(order.getMember()).isEqualTo(member);
     }
 

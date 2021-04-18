@@ -10,7 +10,5 @@ public class Item {
         this.price = price;
     }
 
-    public int applyDiscount(Discount discount) {
-        return discount.apply(this.price);
-    }
+    public int getPrice() { return price; }
 }

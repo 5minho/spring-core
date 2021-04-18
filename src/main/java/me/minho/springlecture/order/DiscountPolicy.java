@@ -2,6 +2,6 @@ package me.minho.springlecture.order;
 
 import me.minho.springlecture.member.Member;
 
-public interface DiscountService {
-    Discount getDiscount(Member member);
+public interface DiscountPolicy {
+    int discount(Member member, int price);
 }

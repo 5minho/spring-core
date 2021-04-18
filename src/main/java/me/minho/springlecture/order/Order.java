@@ -11,14 +11,17 @@ public class Order {
 
     private Item item;
 
-    private int orderPrice;
+    private int itemPrice;
 
-    public static Order createOrder(Member member, Item item, Discount discount) {
+    private int discountPrice;
+
+    public static Order createOrder(Member member, Item item, int discountPrice) {
         Order order = new Order();
         order.id = UUID.randomUUID().toString();
         order.member = member;
         order.item = item;
-        order.orderPrice = item.applyDiscount(discount);
+        order.itemPrice = item.getPrice();
+        order.discountPrice = discountPrice;
         return order;
     }
 
@@ -32,7 +35,7 @@ public class Order {
         return item;
     }
 
-    public int getOrderPrice() {
-        return orderPrice;
+    public int calculateOrderPrice() {
+        return itemPrice - discountPrice;
     }
 }
